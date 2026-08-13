@@ -1,0 +1,884 @@
+// ==UserScript==
+// @name         LinkedIn Job Filter - Blur Unwanted Job Cards and WITCCHA and service based companies
+// @namespace    http://tampermonkey.net/
+// @version      4.1
+// @description  Blur unwanted companies, industries, job titles, experience requirements, and Easy Apply jobs on LinkedIn while keeping cards clickable.
+// @match        https://www.linkedin.com/jobs/*
+// @grant        none
+// @run-at       document-idle
+// ==/UserScript==
+
+(function () {
+    'use strict';
+
+    console.log('[LI FILTER] v4 loaded');
+
+    // ============================================================
+    // BLOCKED COMPANIES
+    // ============================================================
+
+    const BLOCKED_COMPANIES = [
+
+        // -------------------------
+        // Big 4
+        // -------------------------
+
+        /\bdeloitte\b/i,
+        /\bdeloitte usi\b/i,
+        /\bdeloitte india\b/i,
+
+        /\bpwc\b/i,
+        /pricewaterhousecoopers/i,
+        /price\s*waterhouse\s*coopers/i,
+
+        /\bkpmg\b/i,
+
+        /\bernst\s*(?:&|and)\s*young\b/i,
+        /\bey\b/i,
+
+
+        // -------------------------
+        // IT Services / Consulting
+        // -------------------------
+
+        /\bwipro\b/i,
+
+        /\binfosys\b/i,
+
+        /\btata consultancy services\b/i,
+        /\btcs\b/i,
+
+        /\bhcltech\b/i,
+        /\bhcl tech\b/i,
+        /\bhcl technologies\b/i,
+
+        /\bcapgemini\b/i,
+
+        /\bcognizant\b/i,
+        /\bcognizant technology solutions\b/i,
+
+        /\baccenture\b/i,
+
+
+        // -------------------------
+        // Semiconductor / Hardware
+        // -------------------------
+
+        /\bsamsung\b/i,
+        /\bsamsung electronics\b/i,
+
+        /\bintel\b/i,
+
+        /\bqualcomm\b/i,
+
+        /\bnvidia\b/i,
+
+        /\bamd\b/i,
+
+        /\btexas instruments\b/i,
+
+        /\bmicron\b/i,
+
+        /\bmediatek\b/i,
+
+        /\bnxp\b/i,
+
+        /\binfineon\b/i,
+
+        /\bstmicroelectronics\b/i,
+        /\bstmicro\b/i,
+
+        /\brenesas\b/i,
+
+        /\bbroadcom\b/i,
+
+        /\bmarvell\b/i,
+
+        /\banalog devices\b/i,
+
+        /\bmicrochip technology\b/i,
+
+        /\bwestern digital\b/i,
+
+        /\bseagate\b/i,
+
+        /\bsynopsys\b/i,
+
+        /\bcadence\b/i,
+
+
+        // -------------------------
+        // Electronics / Industrial
+        // -------------------------
+
+        /\bsiemens\b/i,
+
+        /\bbosch\b/i,
+
+        /\bhoneywell\b/i,
+
+        /\bschneider electric\b/i,
+
+        /\babb\b/i,
+
+        /\bphilips\b/i,
+
+        /\bsony\b/i,
+
+        /\bpanasonic\b/i,
+
+        /\blg electronics\b/i,
+
+        /\bfoxconn\b/i,
+
+        /\bflex\b/i,
+
+        /\bjabil\b/i
+    ];
+
+
+    // ============================================================
+    // BLOCKED INDUSTRIES / DESCRIPTIONS
+    // ============================================================
+
+    const BLOCKED_INDUSTRIES = [
+
+        // -------------------------
+        // IT Services
+        // -------------------------
+
+        /it services and it consulting/i,
+        /it services & it consulting/i,
+        /it services and consulting/i,
+        /it services & consulting/i,
+
+        /technology consulting/i,
+
+
+        // -------------------------
+        // Electronics
+        // -------------------------
+
+        /semiconductor manufacturing/i,
+
+        /\bsemiconductors\b/i,
+
+        /consumer electronics/i,
+
+        /computers and electronics manufacturing/i,
+
+        /computer hardware manufacturing/i,
+
+        /electrical equipment manufacturing/i,
+
+        /appliances, electrical, and electronics manufacturing/i,
+
+        /electronics manufacturing/i,
+
+        /electronic manufacturing services/i,
+
+        /embedded systems/i,
+
+        /industrial automation/i
+    ];
+
+
+    // ============================================================
+    // BLOCKED JOB FEATURES
+    // ============================================================
+
+    const BLOCKED_FEATURES = [
+
+        // Blur Easy Apply jobs
+        /\beasy apply\b/i
+    ];
+
+
+    // ============================================================
+    // BLOCKED JOB TITLES
+    //
+    // These are deliberately checked against the job title only, so
+    // a Java or hardware mention elsewhere in a card does not hide it.
+    // ============================================================
+
+    const BLOCKED_JOB_TITLES = [
+
+        /\bembedded\b/i,
+        /\bhardware\b/i,
+        /\bjava\b/i,
+
+        // Covers Staff Software Engineer, Software Engineer - Staff,
+        // Staff-level Software Engineer, etc.
+        /\bstaff(?:[-\s]+level)?\s+(?:software|swe|application|platform|backend|frontend|full[ -]?stack)?\s*(?:engineer|developer)\b/i,
+        /\b(?:software|swe|application|platform|backend|frontend|full[ -]?stack)\s*(?:engineer|developer)\s*[-,/]?\s*staff(?:[-\s]+level)?\b/i
+    ];
+
+
+    // More than one year of experience, whether LinkedIn displays it
+    // in the title or in a description snippet (for example, "2+ YOE").
+    const MORE_THAN_ONE_YOE = [
+
+        /\b(?:[2-9]|[1-9]\d)\s*\+\s*(?:yoe|years?|yrs?)\b/i,
+        /\b(?:[2-9]|[1-9]\d)\s*(?:years?|yrs?)\s+(?:of\s+)?experience\b/i,
+        /\b(?:[2-9]|[1-9]\d)\s*(?:-|to)\s*(?:[2-9]|[1-9]\d)\s*(?:years?|yrs?)\b/i,
+        /\b(?:minimum|min\.?|at\s+least)\s+(?:[2-9]|[1-9]\d)\s*(?:years?|yrs?)\b/i
+    ];
+
+
+    // ============================================================
+    // CSS
+    // ============================================================
+
+    const style = document.createElement('style');
+
+    style.textContent = `
+
+        /*
+         * Blur unwanted cards.
+         *
+         * IMPORTANT:
+         * We do NOT use pointer-events:none.
+         * The blurred cards remain clickable.
+         */
+
+        .tm-li-blocked-card {
+            filter: blur(7px) !important;
+            opacity: 0.28 !important;
+
+            transition:
+                filter 0.15s ease,
+                opacity 0.15s ease !important;
+        }
+
+    `;
+
+    document.head.appendChild(style);
+
+
+    // ============================================================
+    // HELPERS
+    // ============================================================
+
+    function normalize(text) {
+
+        return (text || '')
+            .replace(/\s+/g, ' ')
+            .trim();
+    }
+
+
+    function shouldBlock(text) {
+
+        text = normalize(text);
+
+        if (!text) {
+            return false;
+        }
+
+        return (
+
+            BLOCKED_COMPANIES.some(
+                regex => regex.test(text)
+            )
+
+            ||
+
+            BLOCKED_INDUSTRIES.some(
+                regex => regex.test(text)
+            )
+
+            ||
+
+            BLOCKED_FEATURES.some(
+                regex => regex.test(text)
+            )
+
+            ||
+
+            MORE_THAN_ONE_YOE.some(
+                regex => regex.test(text)
+            )
+
+        );
+    }
+
+
+    function getJobTitle(card) {
+
+        const titleElement =
+            card.querySelector(
+                [
+                    'a.job-card-list__title',
+                    'a.job-card-container__link',
+                    '[data-view-name="job-card-title"]',
+                    '.artdeco-entity-lockup__title a',
+                    'h3 a',
+                    'h3'
+                ].join(', ')
+            );
+
+        return normalize(
+            titleElement && titleElement.innerText
+        );
+    }
+
+
+    function shouldBlockJobTitle(title) {
+
+        return BLOCKED_JOB_TITLES.some(
+            regex => regex.test(title)
+        );
+    }
+
+
+    function shouldBlockCard(card) {
+
+        const cardText = normalize(card.innerText);
+        const jobTitle = getJobTitle(card);
+
+        return (
+            shouldBlock(cardText)
+            ||
+            shouldBlockJobTitle(jobTitle)
+        );
+    }
+
+
+    // ============================================================
+    // IDENTIFY WHY SOMETHING WAS BLOCKED
+    // ============================================================
+
+    function getBlockReason(text, jobTitle = '') {
+
+        text = normalize(text);
+
+        for (const regex of BLOCKED_COMPANIES) {
+
+            if (regex.test(text)) {
+                return 'blocked company';
+            }
+        }
+
+
+        for (const regex of BLOCKED_INDUSTRIES) {
+
+            if (regex.test(text)) {
+                return 'blocked industry';
+            }
+        }
+
+
+        for (const regex of BLOCKED_FEATURES) {
+
+            if (regex.test(text)) {
+                return 'Easy Apply';
+            }
+        }
+
+
+        for (const regex of MORE_THAN_ONE_YOE) {
+
+            if (regex.test(text)) {
+                return 'more than 1 YOE';
+            }
+        }
+
+
+        if (shouldBlockJobTitle(jobTitle)) {
+            return 'blocked job title';
+        }
+
+
+        return 'unknown';
+    }
+
+
+    // ============================================================
+    // FIND LEFT-HAND JOB CARD
+    // ============================================================
+
+    function findLeftJobCard(element) {
+
+        let current = element;
+
+        let bestCandidate = null;
+
+
+        for (
+            let i = 0;
+            i < 14 && current;
+            i++
+        ) {
+
+            if (!current.getBoundingClientRect) {
+
+                current = current.parentElement;
+
+                continue;
+            }
+
+
+            const rect =
+                current.getBoundingClientRect();
+
+
+            const text =
+                normalize(current.innerText);
+
+
+            // -------------------------
+            // Basic dimensions
+            // -------------------------
+
+            const cardSized = (
+
+                rect.width >= 200 &&
+
+                rect.width <= 550 &&
+
+                rect.height >= 60 &&
+
+                rect.height <= 350
+
+            );
+
+
+            // -------------------------
+            // Must be left side
+            // -------------------------
+
+            const onLeft = (
+
+                rect.left <
+                window.innerWidth * 0.48
+
+            );
+
+
+            const reasonableText = (
+
+                text.length >= 5 &&
+
+                text.length <= 2000
+
+            );
+
+
+            if (
+                cardSized &&
+                onLeft &&
+                reasonableText
+            ) {
+
+                bestCandidate = current;
+
+            }
+
+
+            // -------------------------
+            // Prefer semantic card
+            // -------------------------
+
+            if (
+
+                (
+                    current.tagName === 'LI' ||
+
+                    current.getAttribute('role') ===
+                    'listitem'
+                )
+
+                &&
+
+                cardSized
+
+                &&
+
+                onLeft
+
+            ) {
+
+                return current;
+
+            }
+
+
+            current =
+                current.parentElement;
+        }
+
+
+        return bestCandidate;
+    }
+
+
+    // ============================================================
+    // BLUR CARD
+    // ============================================================
+
+    function blurCard(card, matchedText) {
+
+        if (!card) {
+            return;
+        }
+
+
+        card.classList.add(
+            'tm-li-blocked-card'
+        );
+
+
+        if (!card.dataset.tmLogged) {
+
+            const reason =
+                getBlockReason(
+                    card.innerText,
+                    getJobTitle(card)
+                );
+
+
+            console.log(
+
+                '[LI FILTER] BLURRED:',
+                reason,
+                '| matched:',
+                matchedText,
+                '| card:',
+                normalize(card.innerText)
+                    .substring(0, 250)
+
+            );
+
+
+            card.dataset.tmLogged =
+                'true';
+        }
+    }
+
+
+    // ============================================================
+    // METHOD 1
+    //
+    // Search visible text in left-hand results
+    // ============================================================
+
+    function scanLeftResults() {
+
+        const elements =
+            document.querySelectorAll(
+                'p, span, div, a'
+            );
+
+
+        for (const element of elements) {
+
+            const rect =
+                element.getBoundingClientRect();
+
+
+            // -------------------------
+            // Ignore invisible elements
+            // -------------------------
+
+            if (
+                rect.width === 0 ||
+                rect.height === 0
+            ) {
+
+                continue;
+            }
+
+
+            // -------------------------
+            // Ignore right-side panel
+            // -------------------------
+
+            if (
+                rect.left >
+                window.innerWidth * 0.48
+            ) {
+
+                continue;
+            }
+
+
+            const text =
+                normalize(element.innerText);
+
+
+            if (!text) {
+                continue;
+            }
+
+
+            /*
+             * Only inspect reasonably small text
+             * chunks so we don't match huge parent
+             * containers.
+             */
+
+            if (text.length > 220) {
+                continue;
+            }
+
+
+            if (!shouldBlock(text)) {
+                continue;
+            }
+
+
+            const card =
+                findLeftJobCard(element);
+
+
+            if (!card) {
+                continue;
+            }
+
+
+            blurCard(
+                card,
+                text
+            );
+        }
+    }
+
+
+    // ============================================================
+    // METHOD 2
+    //
+    // Inspect likely card containers directly
+    // ============================================================
+
+    function scanPossibleCards() {
+
+        const elements =
+            document.querySelectorAll(
+                'li, div[role="listitem"], article'
+            );
+
+
+        for (const element of elements) {
+
+            const rect =
+                element.getBoundingClientRect();
+
+
+            // -------------------------
+            // Invisible element
+            // -------------------------
+
+            if (
+                rect.width === 0 ||
+                rect.height === 0
+            ) {
+
+                continue;
+            }
+
+
+            // -------------------------
+            // Only inspect likely
+            // left-side job cards
+            // -------------------------
+
+            if (
+
+                rect.left >
+                window.innerWidth * 0.48
+
+                ||
+
+                rect.width < 200
+
+                ||
+
+                rect.width > 550
+
+                ||
+
+                rect.height < 60
+
+                ||
+
+                rect.height > 350
+
+            ) {
+
+                continue;
+            }
+
+
+            const text =
+                normalize(
+                    element.innerText
+                );
+
+
+            if (!text) {
+                continue;
+            }
+
+
+            if (shouldBlockCard(element)) {
+
+                blurCard(
+                    element,
+                    getJobTitle(element) || text.substring(0, 120)
+                );
+            }
+        }
+    }
+
+
+    // ============================================================
+    // METHOD 3
+    //
+    // Specifically find Easy Apply text
+    // ============================================================
+
+    function scanEasyApply() {
+
+        const elements =
+            document.querySelectorAll(
+                'span, a, button, div'
+            );
+
+
+        for (const element of elements) {
+
+            const rect =
+                element.getBoundingClientRect();
+
+
+            // Must be left side
+            if (
+                rect.left >
+                window.innerWidth * 0.48
+            ) {
+
+                continue;
+            }
+
+
+            const text =
+                normalize(
+                    element.innerText
+                );
+
+
+            // Exact-ish Easy Apply detection
+            if (
+                !/\beasy apply\b/i.test(text)
+            ) {
+
+                continue;
+            }
+
+
+            // Avoid giant containers
+            if (text.length > 80) {
+                continue;
+            }
+
+
+            const card =
+                findLeftJobCard(element);
+
+
+            if (card) {
+
+                blurCard(
+                    card,
+                    'Easy Apply'
+                );
+            }
+        }
+    }
+
+
+    // ============================================================
+    // MAIN
+    // ============================================================
+
+    function run() {
+
+        scanLeftResults();
+
+        scanPossibleCards();
+
+        scanEasyApply();
+    }
+
+
+    // ============================================================
+    // INITIAL RUNS
+    // ============================================================
+
+    setTimeout(
+        run,
+        300
+    );
+
+    setTimeout(
+        run,
+        800
+    );
+
+    setTimeout(
+        run,
+        1500
+    );
+
+    setTimeout(
+        run,
+        3000
+    );
+
+
+    // ============================================================
+    // WATCH LINKEDIN'S DYNAMIC UI
+    // ============================================================
+
+    let debounceTimer;
+
+
+    const observer =
+        new MutationObserver(() => {
+
+            clearTimeout(
+                debounceTimer
+            );
+
+
+            debounceTimer =
+                setTimeout(
+                    run,
+                    150
+                );
+
+        });
+
+
+    observer.observe(
+        document.body,
+        {
+            childList: true,
+            subtree: true
+        }
+    );
+
+
+    // ============================================================
+    // BACKUP SCAN
+    //
+    // LinkedIn sometimes recycles job card DOM
+    // elements when scrolling.
+    // ============================================================
+
+    setInterval(
+        run,
+        1500
+    );
+
+})();
