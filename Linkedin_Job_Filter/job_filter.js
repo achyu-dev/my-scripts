@@ -44,6 +44,7 @@
         /\bwipro\b/i,
 
         /\binfosys\b/i,
+        /\cgi\b/i,
 
         /\btata consultancy services\b/i,
         /\btcs\b/i,
@@ -58,6 +59,7 @@
         /\bcognizant technology solutions\b/i,
 
         /\baccenture\b/i,
+        /\bitc infotech\b/i,
 
 
         // -------------------------
@@ -203,7 +205,10 @@
 
     const BLOCKED_JOB_TITLES = [
 
-        /\bembedded\b/i,
+        // Use letter/digit boundaries because JavaScript treats `_` as
+        // a word character (for example, `_Embedded` misses `\b`).
+        /(?:^|[^a-z0-9])embedded(?:$|[^a-z0-9])/i,
+        /(?:^|[^a-z0-9])test(?:$|[^a-z0-9])/i,
         /\bhardware\b/i,
         /\bjava\b/i,
 
@@ -341,6 +346,45 @@
             ||
             shouldBlockJobTitle(jobTitle)
         );
+    }
+
+
+    // LinkedIn's left rail includes the signed-in user's profile
+    // summary. Its employer/title text can match the block lists, but
+    // it is not a job card and must never be blurred.
+    function isProfileSummaryCard(card) {
+
+        const profileLinks = [];
+
+        if (
+            card.matches &&
+            card.matches('a[href*="/in/"]')
+        ) {
+            profileLinks.push(card);
+        }
+
+        profileLinks.push(
+            ...card.querySelectorAll(
+                'a[href*="/in/"]'
+            )
+        );
+
+        return profileLinks.some(anchor => {
+
+            let url;
+
+            try {
+                url = new URL(anchor.href, location.origin);
+            } catch {
+                return false;
+            }
+
+            return (
+                /^\/in\/[^/]+\/?$/.test(url.pathname)
+                &&
+                normalize(anchor.innerText).length >= 2
+            );
+        });
     }
 
 
@@ -519,6 +563,16 @@
     function blurCard(card, matchedText) {
 
         if (!card) {
+            return;
+        }
+
+
+        if (isProfileSummaryCard(card)) {
+
+            card.classList.remove(
+                'tm-li-blocked-card'
+            );
+
             return;
         }
 
