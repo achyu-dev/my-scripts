@@ -67,9 +67,9 @@
         /\bLTI\b/i,
         /\bLarsen & Toubro Infotech\b/i,
         /\bLarsen and Toubro Infotech\b/i,
-        
+        /\bZebra Technologies\b/i,
         /\bMindtree\b/i, 
-        
+
 
         // -------------------------
         // Semiconductor / Hardware
