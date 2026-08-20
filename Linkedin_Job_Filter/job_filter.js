@@ -44,7 +44,8 @@
         /\bwipro\b/i,
 
         /\binfosys\b/i,
-        /\cgi\b/i,
+        /\bcgi\b/i,
+        /\bbnp\s+paribas\b/i,
 
         /\btata consultancy services\b/i,
         /\btcs\b/i,
@@ -61,6 +62,14 @@
         /\baccenture\b/i,
         /\bitc infotech\b/i,
 
+         /\bInnoWave\b/i,
+        /\bTech Mahindra\b/i,
+        /\bLTI\b/i,
+        /\bLarsen & Toubro Infotech\b/i,
+        /\bLarsen and Toubro Infotech\b/i,
+        
+        /\bMindtree\b/i, 
+        
 
         // -------------------------
         // Semiconductor / Hardware
@@ -209,6 +218,12 @@
         // a word character (for example, `_Embedded` misses `\b`).
         /(?:^|[^a-z0-9])embedded(?:$|[^a-z0-9])/i,
         /(?:^|[^a-z0-9])test(?:$|[^a-z0-9])/i,
+        /(?:^|[^a-z0-9])testing(?:$|[^a-z0-9])/i,
+        /\bconsult(?:ant|ing)\b/i,
+        /\bquality\s+ass(?:urance|uarance)\b/i,
+        /\bquality\s+engineer\b/i,
+        /(?:^|[^a-z0-9])qa(?:$|[^a-z0-9])/i,
+        /(?:^|[^a-z0-9])\.net(?:$|[^a-z0-9])/i,
         /\bhardware\b/i,
         /\bjava\b/i,
 
