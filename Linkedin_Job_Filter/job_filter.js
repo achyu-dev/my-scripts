@@ -69,8 +69,12 @@
         /\bLarsen and Toubro Infotech\b/i,
         /\bZebra Technologies\b/i,
         /\bMindtree\b/i, 
-
-
+        /\bEXL\b/i,
+        /\bMphasis\b/i,
+        /\bPersistent Systems\b/i,
+        /\bVirtusa\b/i,
+        /\bHexaware\b/i,
+        /\bUST\b/i,
         // -------------------------
         // Semiconductor / Hardware
         // -------------------------
@@ -226,6 +230,7 @@
         /(?:^|[^a-z0-9])\.net(?:$|[^a-z0-9])/i,
         /\bhardware\b/i,
         /\bjava\b/i,
+        /\bpython\s+automation\s+engineer\b/i,
 
         // Covers Staff Software Engineer, Software Engineer - Staff,
         // Staff-level Software Engineer, etc.
