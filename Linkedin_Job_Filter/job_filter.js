@@ -42,26 +42,29 @@
         // -------------------------
 
         /\bwipro\b/i,
-
+        /\bNTT DATA North America\b/i,
+        /\bNTT DATA Services\b/i,
+        /\bNTT DATA\b/i,
+        /\bcapco\b/i,
         /\binfosys\b/i,
         /\bcgi\b/i,
         /\bbnp\s+paribas\b/i,
-
+        /\Automation Anywhere\b/i,
+        /\bgenpact\b/i,
         /\btata consultancy services\b/i,
         /\btcs\b/i,
-
+        /\btech\s*mahindra\b/i,
+        /\bhexaware\b/i,
         /\bhcltech\b/i,
         /\bhcl tech\b/i,
         /\bhcl technologies\b/i,
-
+        /\bViceroy Engineering\b/i,
         /\bcapgemini\b/i,
-
+        /\bcapgemini engineering\b/i,
         /\bcognizant\b/i,
         /\bcognizant technology solutions\b/i,
-
         /\baccenture\b/i,
         /\bitc infotech\b/i,
-
          /\bInnoWave\b/i,
         /\bTech Mahindra\b/i,
         /\bLTI\b/i,
@@ -253,7 +256,7 @@
         /\bhardware\b/i,
         /\bjava\b/i,
         /\bpython\s+automation\s+engineer\b/i,
-
+        /\bQuality Systems Engineer Laboratory Systems\b/i,
         // Covers Staff Software Engineer, Software Engineer - Staff,
         // Staff-level Software Engineer, etc.
         /\bstaff(?:[-\s]+level)?\s+(?:software|swe|application|platform|backend|frontend|full[ -]?stack)?\s*(?:engineer|developer)\b/i,
