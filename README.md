@@ -1,13 +1,14 @@
-# LinkedIn Job Filter
+# My Scripts
+### LinkedIn Job Filter
 
 A Tampermonkey userscript that blurs unwanted job cards in LinkedIn Jobs. Blurred cards remain clickable, so a job can still be opened when needed.
 
-## Requirements
+#### Requirements
 
 - A desktop browser supported by Tampermonkey, such as Chrome, Edge, Firefox, or Brave
 - The [Tampermonkey](https://www.tampermonkey.net/) browser extension installed
 
-## Installation
+#### Installation
 
 1. Install the Tampermonkey extension in your browser.
 2. Open the Tampermonkey dashboard and select **Create a new script**.
@@ -17,7 +18,7 @@ A Tampermonkey userscript that blurs unwanted job cards in LinkedIn Jobs. Blurre
 
 The script only runs on URLs that match `https://www.linkedin.com/jobs/*`.
 
-## What It Filters
+#### What It Filters
 
 The script blurs job cards that match any of the following:
 
@@ -30,7 +31,7 @@ The script blurs job cards that match any of the following:
 
 The title-only filters do not blur a role merely because Java, hardware, or embedded work is mentioned elsewhere in its description.
 
-## Customization
+### Customization
 
 Open [job_filter.js](job_filter.js) in a text editor and update the relevant lists near the top of the file:
 
@@ -42,11 +43,11 @@ Open [job_filter.js](job_filter.js) in a text editor and update the relevant lis
 
 Each entry is a JavaScript regular expression. Save the userscript in Tampermonkey, then refresh LinkedIn Jobs to apply changes.
 
-## How It Works
+### How It Works
 
 LinkedIn dynamically loads and recycles job cards while scrolling. The script scans the left-hand job-results column after page load, watches for page updates, and performs a periodic backup scan. Matching cards receive a blur and lower opacity but retain normal click behavior.
 
-## Troubleshooting
+### Troubleshooting
 
 - Confirm that the script is enabled in the Tampermonkey dashboard.
 - Refresh the LinkedIn Jobs page after saving a change.

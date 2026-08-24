@@ -260,7 +260,9 @@
         // Covers Staff Software Engineer, Software Engineer - Staff,
         // Staff-level Software Engineer, etc.
         /\bstaff(?:[-\s]+level)?\s+(?:software|swe|application|platform|backend|frontend|full[ -]?stack)?\s*(?:engineer|developer)\b/i,
-        /\b(?:software|swe|application|platform|backend|frontend|full[ -]?stack)\s*(?:engineer|developer)\s*[-,/]?\s*staff(?:[-\s]+level)?\b/i
+        /\b(?:software|swe|application|platform|backend|frontend|full[ -]?stack)\s*(?:engineer|developer)\s*[-,/]?\s*staff(?:[-\s]+level)?\b/i,
+        /\bsalesforce\b/i,
+        /\bpersistent disk\b/i,
     ];
 
 
