@@ -103,7 +103,7 @@
         // -------------------------
         // Semiconductor / Hardware
         // -------------------------
-
+        /\mouser electronics\b/i,
         /\bsamsung\b/i,
         /\bsamsung electronics\b/i,
 
