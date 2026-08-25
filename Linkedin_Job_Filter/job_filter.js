@@ -44,6 +44,7 @@
         /\bwipro\b/i,
         /\bVIDA Digital Identity\b/i,
         /\bNTT DATA North America\b/i,
+        /\bHappiest Minds Technologies\b/i,
         /\bNTT DATA Services\b/i,
         /\bNTT DATA\b/i,
         /\bcapco\b/i,
