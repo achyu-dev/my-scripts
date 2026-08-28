@@ -104,6 +104,8 @@
         /\bWSP Canada\b/i,
         /\bWSP UK\b/i,
         /\bWSP Australia\b/i,
+        /\bSAIKOR SECURITY TRAINING AND SERVICES PRIVATE LIMITED\b/i,
+        /\bathenahealth \b/i,
         // -------------------------
         // Semiconductor / Hardware
         // -------------------------
