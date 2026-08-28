@@ -256,6 +256,7 @@
         /(?:^|[^a-z0-9])Senior(?:$|[^a-z0-9])/i,
         /(?:^|[^a-z0-9])Systems(?:$|[^a-z0-9])/i,
         /(?:^|[^a-z0-9])BIW Design Engineer(?:$|[^a-z0-9])/i,
+        /(?:^|[^a-z0-9])Shopify(?:$|[^a-z0-9])/i,
         /\bconsult(?:ant|ing)\b/i,
         /\bquality\s+ass(?:urance|uarance)\b/i,
         /\bquality\s+engineer\b/i,
