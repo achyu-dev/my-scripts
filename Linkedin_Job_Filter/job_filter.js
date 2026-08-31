@@ -43,6 +43,7 @@
 
         /\bwipro\b/i,
         /\bVIDA Digital Identity\b/i,
+        /\bemagine\b/i, 
         /\bNTT DATA North America\b/i,
         /\bHappiest Minds Technologies\b/i,
         /\bQuest Global\b/i,
@@ -147,7 +148,8 @@
         /\banalog devices\b/i,
 
         /\bmicrochip technology\b/i,
-
+        /\bHuntingCube\b/i,
+        /\bLight & Wonder\b/i,
         /\bwestern digital\b/i,
 
         /\bseagate\b/i,
@@ -260,6 +262,7 @@
         /(?:^|[^a-z0-9])testing(?:$|[^a-z0-9])/i,
         /(?:^|[^a-z0-9])power apps(?:$|[^a-z0-9])/i,
         /(?:^|[^a-z0-9])Senior(?:$|[^a-z0-9])/i,
+        /(?:^|[^a-z0-9])Power BI Developer Profile(?:$|[^a-z0-9])/i,
         /(?:^|[^a-z0-9])Systems(?:$|[^a-z0-9])/i,
         /(?:^|[^a-z0-9])BIW Design Engineer(?:$|[^a-z0-9])/i,
         /(?:^|[^a-z0-9])Shopify(?:$|[^a-z0-9])/i,
