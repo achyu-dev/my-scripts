@@ -43,6 +43,7 @@
 
         /\bwipro\b/i,
         /\bVIDA Digital Identity\b/i,
+        /\bUplers\b/i,
         /\bemagine\b/i, 
         /\bNTT DATA North America\b/i,
         /\bHappiest Minds Technologies\b/i,
@@ -65,6 +66,7 @@
         /\bhcl tech\b/i,
         /\bhcl technologies\b/i,
         /\bViceroy Engineering\b/i,
+        /\bQuixta\b/i,
         /\bcapgemini\b/i,
         /\bcapgemini engineering\b/i,
         /\bcognizant\b/i,
@@ -144,7 +146,7 @@
         /\bbroadcom\b/i,
 
         /\bmarvell\b/i,
-
+        /\bFirst Citizens India\b/i,
         /\banalog devices\b/i,
 
         /\bmicrochip technology\b/i,
@@ -164,7 +166,7 @@
         // -------------------------
 
         /\bsiemens\b/i,
-
+        /\bCollins Aerospace\b/i,
         /\bbosch\b/i,
 
         /\bhoneywell\b/i,
@@ -184,8 +186,8 @@
         /\bfoxconn\b/i,
 
         /\bflex\b/i,
-
-        /\bjabil\b/i
+        /\bjabil\b/i,
+        /\bJobBeeper\b/i,
     ];
 
 
@@ -277,6 +279,16 @@
         /(?:^|[^a-z0-9])Workday Studio(?:$|[^a-z0-9])/i,
         /(?:^|[^a-z0-9])PhD(?:$|[^a-z0-9])/i,
         /(?:^|[^a-z0-9])Digital Claims(?:$|[^a-z0-9])/i,
+        /(?:^|[^a-z0-9])Engineer 2(?:$|[^a-z0-9])/i,
+        /(?:^|[^a-z0-9])Engineer II(?:$|[^a-z0-9])/i,
+        /(?:^|[^a-z0-9])Engineer 3(?:$|[^a-z0-9])/i,
+        /(?:^|[^a-z0-9])Engineer III(?:$|[^a-z0-9])/i,
+        /(?:^|[^a-z0-9])Data Conversion Developer(?:$|[^a-z0-9])/i,
+        /(?:^|[^a-z0-9])Security(?:$|[^a-z0-9])/i,
+        /(?:^|[^a-z0-9])Silicon(?:$|[^a-z0-9])/i,
+        /(?:^|[^a-z0-9])Data Engineer(?:$|[^a-z0-9])/i,
+        /(?:^|[^a-z0-9])CAD Application(?:$|[^a-z0-9])/i,
+        /(?:^|[^a-z0-9])Wordpress(?:$|[^a-z0-9])/i,
         /(?:^|[^a-z0-9])Data Analyst(?:$|[^a-z0-9])/i,
         /\bconsult(?:ant|ing)\b/i,
         /\bquality\s+ass(?:urance|uarance)\b/i,
