@@ -42,6 +42,12 @@
         // -------------------------
 
         /\bwipro\b/i,
+        /\bNNE\b/i,
+        /\b UL Solutions \b/i,
+        /\bInfosys\b/i,
+        /\bTech Mahindra\b/i,
+        /\bHCL\b/i,
+        /\bTata Consultancy Services\b/i,
         /\bVIDA Digital Identity\b/i,
         /\bUplers\b/i,
         /\bemagine\b/i, 
@@ -117,6 +123,12 @@
         // Semiconductor / Hardware
         // -------------------------
         /\mouser electronics\b/i,
+        /\bGIVA\b/i,
+        /\bIMI\b/i,
+        /\bsamsung\b/i,
+        /\bSchindler Group\b/i,
+        /\bLinde\b/i,
+        /\SiFive\b/i,
         /\bsamsung\b/i,
         /\bsamsung electronics\b/i,
 
@@ -271,6 +283,8 @@
         /(?:^|[^a-z0-9])Manufacturing(?:$|[^a-z0-9])/i,
         /(?:^|[^a-z0-9])Support(?:$|[^a-z0-9])/i,
         /(?:^|[^a-z0-9])Automation(?:$|[^a-z0-9])/i,
+        /(?:^|[^a-z0-9])Web Accessibility Engineer(?:$|[^a-z0-9])/i,
+        /(?:^|[^a-z0-9])ASIC Verification & Validation Engineer(?:$|[^a-z0-9])/i,
         /(?:^|[^a-z0-9])Operations(?:$|[^a-z0-9])/i,
         /(?:^|[^a-z0-9])Materials(?:$|[^a-z0-9])/i,
         /(?:^|[^a-z0-9])Electrical Engineer(?:$|[^a-z0-9])/i,
