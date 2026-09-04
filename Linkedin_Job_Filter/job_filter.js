@@ -295,6 +295,7 @@
         /(?:^|[^a-z0-9])ASIC Verification & Validation Engineer(?:$|[^a-z0-9])/i,
         /(?:^|[^a-z0-9])Operations(?:$|[^a-z0-9])/i,
         /(?:^|[^a-z0-9])Materials(?:$|[^a-z0-9])/i,
+        /(?:^|[^a-z0-9])Analyst(?:$|[^a-z0-9])/i,
         /(?:^|[^a-z0-9])Electrical Engineer(?:$|[^a-z0-9])/i,
         /(?:^|[^a-z0-9])Data Scientist(?:$|[^a-z0-9])/i,
         /(?:^|[^a-z0-9])Design Engineer(?:$|[^a-z0-9])/i,
