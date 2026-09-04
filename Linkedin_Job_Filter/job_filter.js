@@ -131,8 +131,14 @@
         /\SiFive\b/i,
         /\bsamsung\b/i,
         /\bsamsung electronics\b/i,
-
+        /\bHSBC\b/i,
+        /\bTSMC\b/i,
+        /\bBCE Global Tech - A Bell Canada Company\b/i,
+        /\bDraup\b/i,
         /\bintel\b/i,
+        /\bJai Kisan\b/i,
+        /\bICON plc\b/i,
+        /\bAltera\b/i,
 
         /\bqualcomm\b/i,
 
@@ -277,6 +283,8 @@
         /(?:^|[^a-z0-9])power apps(?:$|[^a-z0-9])/i,
         /(?:^|[^a-z0-9])Senior(?:$|[^a-z0-9])/i,
         /(?:^|[^a-z0-9])Power BI Developer Profile(?:$|[^a-z0-9])/i,
+        /(?:^|[^a-z0-9])Chromecast(?:$|[^a-z0-9])/i,
+        /(?:^|[^a-z0-9])Helpdesk Engineer(?:$|[^a-z0-9])/i,
         /(?:^|[^a-z0-9])Systems(?:$|[^a-z0-9])/i,
         /(?:^|[^a-z0-9])BIW Design Engineer(?:$|[^a-z0-9])/i,
         /(?:^|[^a-z0-9])Shopify(?:$|[^a-z0-9])/i,
