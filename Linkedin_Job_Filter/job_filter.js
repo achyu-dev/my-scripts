@@ -304,6 +304,7 @@
         /(?:^|[^a-z0-9])Design Engineer(?:$|[^a-z0-9])/i,
         /(?:^|[^a-z0-9])Workday Studio(?:$|[^a-z0-9])/i,
         /(?:^|[^a-z0-9])PhD(?:$|[^a-z0-9])/i,
+        /(?:^|[^a-z0-9])ECAD(?:$|[^a-z0-9])/i,
         /(?:^|[^a-z0-9])Digital Claims(?:$|[^a-z0-9])/i,
         /(?:^|[^a-z0-9])Engineer 2(?:$|[^a-z0-9])/i,
         /(?:^|[^a-z0-9])Engineer II(?:$|[^a-z0-9])/i,
