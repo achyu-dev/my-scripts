@@ -42,6 +42,7 @@
         // -------------------------
 
         /\bwipro\b/i,
+        /\bBristlecone\b/i,
         /\bNNE\b/i,
         /\b UL Solutions \b/i,
         /\bInfosys\b/i,
