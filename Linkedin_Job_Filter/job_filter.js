@@ -43,6 +43,13 @@
 
         /\bwipro\b/i,
         /\bBristlecone\b/i,
+        /\bBasenine\b/i,
+        /\bFortrea\b/i,
+        /\bNarayana Health\b/i,
+        /\bTakeda\b/i,
+        /\bCognizant\b/i,
+        /\bDelta Technology Hub\b/i,
+        /\bCapgemini\b/i,
         /\bNNE\b/i,
         /\b UL Solutions \b/i,
         /\bInfosys\b/i,
@@ -147,7 +154,8 @@
         /\bnvidia\b/i,
 
         /\bamd\b/i,
-
+        /\bDeutsche Bahn\b/i,
+        /\bJob Directory-CyOpsPath\b/i,
         /\btexas instruments\b/i,
 
         /\bmicron\b/i,
