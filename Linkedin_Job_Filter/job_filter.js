@@ -194,6 +194,7 @@
         // -------------------------
 
         /\bsiemens\b/i,
+        /\bMichael Page\b/i,
         /\bCollins Aerospace\b/i,
         /\bbosch\b/i,
 
