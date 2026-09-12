@@ -188,6 +188,7 @@
 
         /\bmicrochip technology\b/i,
         /\bHuntingCube\b/i,
+        /(?:^|[^a-z0-9])Flowserve Corporation(?:$|[^a-z0-9])/i,
         /\bLight & Wonder\b/i,
         /\bwestern digital\b/i,
 
@@ -309,6 +310,8 @@
         /(?:^|[^a-z0-9])Senior(?:$|[^a-z0-9])/i,
         /(?:^|[^a-z0-9])Power BI Developer Profile(?:$|[^a-z0-9])/i,
         /(?:^|[^a-z0-9])Chromecast(?:$|[^a-z0-9])/i,
+        /(?:^|[^a-z0-9])Agentic Analytics Products Developer(?:$|[^a-z0-9])/i,
+        /(?:^|[^a-z0-9])Flowserve Corporation(?:$|[^a-z0-9])/i,
         /(?:^|[^a-z0-9])Software Engineer Complier Technologies(?:$|[^a-z0-9])/i,
         /(?:^|[^a-z0-9])Associate(?:$|[^a-z0-9])/i,
         /(?:^|[^a-z0-9])Helpdesk Engineer(?:$|[^a-z0-9])/i,
