@@ -73,6 +73,7 @@
         /\bcapco\b/i,
         /\binfosys\b/i,
         /\bTELUS Digital\b/i,
+        /\bCargill\b/i,
         /\bcgi\b/i,
         /\bLarsen & Toubro\b/i,
         /\bbnp\s+paribas\b/i,
