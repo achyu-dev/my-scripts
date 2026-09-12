@@ -157,7 +157,7 @@
         /\bAltera\b/i,
 
         /\bqualcomm\b/i,
-
+        /\bbp\b/i,
         /\bnvidia\b/i,
 
         /\bamd\b/i,
@@ -201,6 +201,7 @@
         // -------------------------
 
         /\bsiemens\b/i,
+        /\bPRI INDIA IT SERVICES PRIVATE LIMITED\b/i,
         /\bKONE\b/i,
         /\bABB\b/i,
         /\bRockwell Automation\b/i,
@@ -321,6 +322,8 @@
         /(?:^|[^a-z0-9])Automation(?:$|[^a-z0-9])/i,
         /(?:^|[^a-z0-9])Web Accessibility Engineer(?:$|[^a-z0-9])/i,
         /(?:^|[^a-z0-9])ASIC Verification & Validation Engineer(?:$|[^a-z0-9])/i,
+        /(?:^|[^a-z0-9])Electrical, Control & Instrumentation (EC&I) Engineer(?:$|[^a-z0-9])/i,
+        /(?:^|[^a-z0-9])Google Workspace Admin - Software Engineer(?:$|[^a-z0-9])/i,
         /(?:^|[^a-z0-9])Lead(?:$|[^a-z0-9])/i,
         /(?:^|[^a-z0-9])Intermediate(?:$|[^a-z0-9])/i,
         /(?:^|[^a-z0-9])Flutter(?:$|[^a-z0-9])/i,
