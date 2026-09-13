@@ -136,6 +136,7 @@
         /\bWSP Australia\b/i,
         /\bSAIKOR SECURITY TRAINING AND SERVICES PRIVATE LIMITED\b/i,
         /\bathenahealth \b/i,
+        /\bFractal\b/i,
         /\bXylem\b/i,
         // -------------------------
         // Semiconductor / Hardware
