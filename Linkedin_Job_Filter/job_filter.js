@@ -162,7 +162,8 @@
         /\bqualcomm\b/i,
         /\bbp\b/i,
         /\bnvidia\b/i,
-
+        /\bMouser Electronics\b/i,
+        /\bMouser\b/i,
         /\bamd\b/i,
         /\bDeutsche Bahn\b/i,
         /\bJob Directory-CyOpsPath\b/i,
