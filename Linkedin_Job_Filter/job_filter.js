@@ -119,6 +119,8 @@
         /\bCyient\b/i,
         /\bSonata Software\b/i,
         /\bZensar Technologies\b/i,
+        /\bTiger Analytics\b/i,
+        /\bAltisource\b/i,
         /\bKPIT Technologies\b/i,
         /\bSasken Technologies\b/i,
         /\bSasken\b/i,
