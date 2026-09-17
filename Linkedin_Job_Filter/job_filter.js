@@ -171,7 +171,7 @@
         /\bDeutsche Bahn\b/i,
         /\bJob Directory-CyOpsPath\b/i,
         /\btexas instruments\b/i,
-
+        /\bHARMAN India\b/i,
         /\bmicron\b/i,
 
         /\bmediatek\b/i,
@@ -323,6 +323,7 @@
         /(?:^|[^a-z0-9])Systems(?:$|[^a-z0-9])/i,
         /(?:^|[^a-z0-9])BIW Design Engineer(?:$|[^a-z0-9])/i,
         /(?:^|[^a-z0-9])Payroll(?:$|[^a-z0-9])/i,
+        /(?:^|[^a-z0-9])IT Engineer(?:$|[^a-z0-9])/i,
         /(?:^|[^a-z0-9])Spacecraft Controller(?:$|[^a-z0-9])/i,
         /(?:^|[^a-z0-9])Thermal Engineer(?:$|[^a-z0-9])/i,
         /(?:^|[^a-z0-9])oracle(?:$|[^a-z0-9])/i,
