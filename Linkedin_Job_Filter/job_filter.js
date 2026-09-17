@@ -112,6 +112,7 @@
         /\bUST\b/i,
         /\bYASH Technologies\b/i,
         /\bBirlasoft\b/i,
+        /\bComviva\b/i, 
         /\bSyntel\b/i,
         /\bNIIT Technologies\b/i,
         /\bNIIT Tech\b/i,
