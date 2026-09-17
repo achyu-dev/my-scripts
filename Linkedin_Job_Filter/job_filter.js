@@ -122,6 +122,8 @@
         /\bTiger Analytics\b/i,
         /\bAltisource\b/i,
         /\bKPIT Technologies\b/i,
+        /\bSixSense\b/i,
+        /\bSpectertech Labs\b/i, 
         /\bSasken Technologies\b/i,
         /\bSasken\b/i,
         /\bTata Elxsi\b/i,
@@ -129,6 +131,9 @@
         /\bTata Elxsi Ltd\b/i,
         /\WSP in India\b/i,
         /\bTekWissen India\b/i,
+        /\bBrillio\b/i,
+        /\bpeopleHum\b/i,
+        /\bFinBox\b/i,
         /\bPeople Prime Worldwide\b/i,
         /\bWSP\b/i,
         /\bWSP Global\b/i,
@@ -175,7 +180,7 @@
         /\bmicron\b/i,
 
         /\bmediatek\b/i,
-
+        /\bPratt & Whitney\b/i,
         /\bnxp\b/i,
 
         /\binfineon\b/i,
@@ -324,6 +329,8 @@
         /(?:^|[^a-z0-9])BIW Design Engineer(?:$|[^a-z0-9])/i,
         /(?:^|[^a-z0-9])Payroll(?:$|[^a-z0-9])/i,
         /(?:^|[^a-z0-9])IT Engineer(?:$|[^a-z0-9])/i,
+        /(?:^|[^a-z0-9])Commerce(?:$|[^a-z0-9])/i,
+        /(?:^|[^a-z0-9])Services(?:$|[^a-z0-9])/i,
         /(?:^|[^a-z0-9])Snowflake(?:$|[^a-z0-9])/i,
         /(?:^|[^a-z0-9])Spacecraft Controller(?:$|[^a-z0-9])/i,
         /(?:^|[^a-z0-9])Thermal Engineer(?:$|[^a-z0-9])/i,
