@@ -110,6 +110,7 @@
         /\bVirtusa\b/i,
         /\bHexaware\b/i,
         /\bUST\b/i,
+        /\bYASH Technologies\b/i,
         /\bBirlasoft\b/i,
         /\bSyntel\b/i,
         /\bNIIT Technologies\b/i,
