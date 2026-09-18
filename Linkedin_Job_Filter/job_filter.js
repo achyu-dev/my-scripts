@@ -346,6 +346,8 @@
         /(?:^|[^a-z0-9])Shopify(?:$|[^a-z0-9])/i,
         /(?:^|[^a-z0-9])Manufacturing(?:$|[^a-z0-9])/i,
         /(?:^|[^a-z0-9])Support(?:$|[^a-z0-9])/i,
+        /(?:^|[^a-z0-9])Kotlin(?:$|[^a-z0-9])/i,
+        /(?:^|[^a-z0-9])Flutter(?:$|[^a-z0-9])/i,
         /(?:^|[^a-z0-9])Penetration Tester(?:$|[^a-z0-9])/i,
         /(?:^|[^a-z0-9])Automation(?:$|[^a-z0-9])/i,
         /(?:^|[^a-z0-9])Web Accessibility Engineer(?:$|[^a-z0-9])/i,
