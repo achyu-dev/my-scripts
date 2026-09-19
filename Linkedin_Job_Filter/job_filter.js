@@ -206,9 +206,11 @@
 
         /\bmicrochip technology\b/i,
         /\bHuntingCube\b/i,
+        /\bTest Jugal\b/i,
         /(?:^|[^a-z0-9])Flowserve Corporation(?:$|[^a-z0-9])/i,
         /\bLight & Wonder\b/i,
         /\bwestern digital\b/i,
+        /\bWesco\b/i,
 
         /\bseagate\b/i,
 
