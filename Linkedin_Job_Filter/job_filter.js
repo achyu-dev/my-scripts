@@ -231,10 +231,13 @@
         /\bABB\b/i,
         /\bRockwell Automation\b/i,
         /\bMichael Page\b/i,
+        /\bYokogawa\b/i,
+        /\bSchneider Electric\b/i,
         /\bCollins Aerospace\b/i,
         /\bbosch\b/i,
-
+        /\bAMETEK\b/i,
         /\bhoneywell\b/i,
+        /\bPrecision Medicine Group\b/i,
 
         /\bschneider electric\b/i,
 
@@ -353,6 +356,9 @@
         /(?:^|[^a-z0-9])INH2026- BI Developer (?:$|[^a-z0-9])/i,
         /(?:^|[^a-z0-9])Shopify(?:$|[^a-z0-9])/i,
         /(?:^|[^a-z0-9])Manufacturing(?:$|[^a-z0-9])/i,
+        /(?:^|[^a-z0-9])Capacity(?:$|[^a-z0-9])/i,
+        /(?:^|[^a-z0-9])Planning(?:$|[^a-z0-9])/i,
+        /(?:^|[^a-z0-9])Assembler(?:$|[^a-z0-9])/i,
         /(?:^|[^a-z0-9])Support(?:$|[^a-z0-9])/i,
         /(?:^|[^a-z0-9])Kotlin(?:$|[^a-z0-9])/i,
         /(?:^|[^a-z0-9])Flutter(?:$|[^a-z0-9])/i,
