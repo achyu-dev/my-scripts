@@ -175,7 +175,7 @@
         /\bJai Kisan\b/i,
         /\bICON plc\b/i,
         /\bAltera\b/i,
-
+        /\bFesto\b/i,
         /\bqualcomm\b/i,
         /\bbp\b/i,
         /\bnvidia\b/i,
@@ -350,6 +350,7 @@
         /(?:^|[^a-z0-9])Helpdesk Engineer(?:$|[^a-z0-9])/i,
         /(?:^|[^a-z0-9])Systems(?:$|[^a-z0-9])/i,
         /(?:^|[^a-z0-9])BIW Design Engineer(?:$|[^a-z0-9])/i,
+        /(?:^|[^a-z0-9])Forward Deployed Engineer(?:$|[^a-z0-9])/i,
         /(?:^|[^a-z0-9])Payroll(?:$|[^a-z0-9])/i,
         /(?:^|[^a-z0-9])IT Engineer(?:$|[^a-z0-9])/i,
         /(?:^|[^a-z0-9])Commerce(?:$|[^a-z0-9])/i,
