@@ -26,24 +26,21 @@
         /\bdeloitte\b/i,
         /\bdeloitte usi\b/i,
         /\bdeloitte india\b/i,
-
         /\bpwc\b/i,
         /pricewaterhousecoopers/i,
         /price\s*waterhouse\s*coopers/i,
-
         /\bkpmg\b/i,
-
         /\bernst\s*(?:&|and)\s*young\b/i,
         /\bey\b/i,
-
 
         // -------------------------
         // IT Services / Consulting
         // -------------------------
-
+        /\bArup\b/i,
         /\bwipro\b/i,
         /\bBristlecone\b/i,
         /\bBasenine\b/i,
+        /\b11:11 Systems\b/i,
         /\bFortrea\b/i,
         /\bNarayana Health\b/i,
         /\bTakeda\b/i,
@@ -51,6 +48,7 @@
         /\'O'Neil Digital Solutions\b/i,
         /\bDelta Technology Hub\b/i,
         /\bCapgemini\b/i,
+        /\bSource-Right\b/i,
         /\bAlaan الآن\b/i,
         /\bSwish\b/i,
         /\bMolex\b/i,
@@ -199,18 +197,14 @@
         /\bnxp\b/i,
         /\bKennametal\b/i,
         /\binfineon\b/i,
-
+        /\bMagna International\b/i,
         /\bstmicroelectronics\b/i,
         /\bstmicro\b/i,
-
         /\brenesas\b/i,
-
         /\bbroadcom\b/i,
-
         /\bmarvell\b/i,
         /\bFirst Citizens India\b/i,
         /\banalog devices\b/i,
-
         /\bmicrochip technology\b/i,
         /\bHuntingCube\b/i,
         /\bTest Jugal\b/i,
@@ -218,18 +212,14 @@
         /\bLight & Wonder\b/i,
         /\bwestern digital\b/i,
         /\bWesco\b/i,
-
+        /\bKeysight Technologies\b/i,
         /\bseagate\b/i,
-
         /\bsynopsys\b/i,
-
         /\bcadence\b/i,
-
-
+        /\bGE HealthCare\b/i,
         // -------------------------
         // Electronics / Industrial
         // -------------------------
-
         /\bsiemens\b/i,
         /\bPRI INDIA IT SERVICES PRIVATE LIMITED\b/i,
         /\bKONE\b/i,
@@ -243,19 +233,13 @@
         /\bAMETEK\b/i,
         /\bhoneywell\b/i,
         /\bPrecision Medicine Group\b/i,
-
+        /\bLandmark Group\b/i,
         /\bschneider electric\b/i,
-
         /\babb\b/i,
-
         /\bphilips\b/i,
-
         /\bsony\b/i,
-
         /\bpanasonic\b/i,
-
         /\blg electronics\b/i,
-
         /\bfoxconn\b/i,
         /\bLSEG\b/i,
         /\bflex\b/i,
@@ -346,8 +330,12 @@
         /(?:^|[^a-z0-9])Software Engineer Complier Technologies(?:$|[^a-z0-9])/i,
         /(?:^|[^a-z0-9])Associate(?:$|[^a-z0-9])/i,
         /(?:^|[^a-z0-9])Fraud(?:$|[^a-z0-9])/i,
+        /(?:^|[^a-z0-9])BALA(?:$|[^a-z0-9])/i,
+        /(?:^|[^a-z0-9])Developer II(?:$|[^a-z0-9])/i,
+        /(?:^|[^a-z0-9])Developer III(?:$|[^a-z0-9])/i,
         /(?:^|[^a-z0-9])Assoc(?:$|[^a-z0-9])/i,
         /(?:^|[^a-z0-9])Helpdesk Engineer(?:$|[^a-z0-9])/i,
+        /(?:^|[^a-z0-9])Avalonia Developer(?:$|[^a-z0-9])/i,
         /(?:^|[^a-z0-9])Systems(?:$|[^a-z0-9])/i,
         /(?:^|[^a-z0-9])BIW Design Engineer(?:$|[^a-z0-9])/i,
         /(?:^|[^a-z0-9])Forward Deployed Engineer(?:$|[^a-z0-9])/i,
